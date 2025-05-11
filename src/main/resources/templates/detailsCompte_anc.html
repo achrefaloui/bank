@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Détails</title></head>
+<body>
+<h1>Détails du Compte</h1>
+<p>ID : <span th:text="${compte.id}"></span></p>
+<p>Titulaire : <span th:text="${compte.titulaire}"></span></p>
+<p>Solde : <span th:text="${compte.solde} + ' €'"></span></p>
+
+<h2>Dépôt</h2>
+<form th:action="@{'/depot/' + ${compte.id}}" method="post">
+    <input name="montant" type="number" />
+    <button type="submit">Déposer</button>
+</form>
+
+<h2>Retrait</h2>
+<form th:action="@{'/retrait/' + ${compte.id}}" method="post">
+    <input name="montant" type="number" />
+    <button type="submit">Retirer</button>
+</form>
+
+<a href="/comptes">Retour</a>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Ajouter</title></head>
+<body>
+<h1>Ajouter un compte</h1>
+<form th:action="@{/ajouter}" th:object="${compte}" method="post">
+    <label>Titulaire : <input th:field="*{titulaire}" /></label><br>
+    <label>Solde : <input th:field="*{solde}" type="number" /></label><br>
+    <button type="submit">Valider</button>
+</form>
+</body>
+</html>

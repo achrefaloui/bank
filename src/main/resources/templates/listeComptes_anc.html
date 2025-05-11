@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Comptes</title></head>
+<body>
+<h1>Liste des Comptes</h1>
+<a href="/ajouter">Ajouter un Compte</a>
+<table border="1">
+<tr><th>ID</th><th>Titulaire</th><th>Solde</th><th>Actions</th></tr>
+<tr th:each="c : ${comptes}">
+    <td th:text="${c.id}"></td>
+    <td th:text="${c.titulaire}"></td>
+    <td th:text="${c.solde} + ' €'"></td>
+    <td>
+        <a th:href="@{'/compte/' + ${c.id}}">Détails</a> |
+        <a th:href="@{'/supprimer/' + ${c.id}}">Supprimer</a>
+    </td>
+</tr>
+</table>
+</body>
+</html>
